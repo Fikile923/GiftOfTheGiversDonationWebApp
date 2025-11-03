@@ -1,0 +1,2 @@
+using System;
+namespace GOGRelief.Data.Models { public class Donation { public int Id { get; set; } public string DonorName { get; set; } = string.Empty; public string ResourceType { get; set; } = string.Empty; public int Quantity { get; set; } public DateTime DonationDate { get; set; } = DateTime.UtcNow; public string? Status { get; set; } } }

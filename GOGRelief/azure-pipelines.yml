@@ -1,0 +1,17 @@
+trigger:
+  branches: [ main ]
+pool:
+  vmImage: 'windows-latest'
+steps:
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '7.x'
+- script: dotnet restore
+- script: dotnet build --configuration Release
+- script: dotnet test --configuration Release --no-build --logger trx
+- script: dotnet publish GOGRelief.Web -c Release -o $(Build.ArtifactStagingDirectory)/app
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathtoPublish: '$(Build.ArtifactStagingDirectory)/app'
+    artifactName: 'drop'

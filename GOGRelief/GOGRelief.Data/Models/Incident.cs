@@ -1,0 +1,2 @@
+using System;
+namespace GOGRelief.Data.Models { public class Incident { public int Id { get; set; } public string Title { get; set; } = string.Empty; public string Description { get; set; } = string.Empty; public string Severity { get; set; } = string.Empty; public double? Latitude { get; set; } public double? Longitude { get; set; } public DateTime ReportedAt { get; set; } = DateTime.UtcNow; } }
